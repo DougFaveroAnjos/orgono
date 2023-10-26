@@ -2,10 +2,10 @@ import './ListaSuspensa.css'
 
 export function ListaSuspensa(props){
     return(
-        <div>
+        <div className='lista-suspensa'>
             <label>{props.label}</label>
-            <select>
-                {props.item.map(item => <option>{item}</option>)}
+            <select required={props.obrigatorio}>
+                {props.item.map(item => <option key={item}>{item}</option>)}
             </select>
         </div>
 
