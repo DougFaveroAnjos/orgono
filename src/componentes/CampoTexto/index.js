@@ -1,15 +1,12 @@
-import { useState } from 'react';
+
 import './CampoTexto.css'
 
 
 export function CampoTexto(props){
-    
-    const [valor, setValor] = useState('')
 
     const aoDigitar = (event) => {
         /**Varre o input toda vez que for digitado algo novo*/
-        setValor(event.target.value)
-        console.log(event.target.value)
+        props.aoAlterar(event.target.value)
     }
 
     return(
@@ -20,7 +17,7 @@ export function CampoTexto(props){
              *   Placeholder = Texto que vai dentro do input
              *   Required = Define aquele campo como obrigatório
              */}
-            <input value={valor} onChange={aoDigitar} placeholder={props.placeholder} required={props.obrigatorio}/>
+            <input value={props.valor} onChange={aoDigitar} placeholder={props.placeholder} required={props.obrigatorio}/>
         </div>
     )
 }
