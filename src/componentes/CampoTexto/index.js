@@ -4,9 +4,9 @@ import './CampoTexto.css'
 
 export function CampoTexto(props){
 
-    const aoDigitar = (event) => {
+    const aoDigitar = (e) => {
         /**Varre o input toda vez que for digitado algo novo*/
-        props.aoAlterar(event.target.value)
+        props.aoAlterar(e.target.value)
     }
 
     return(

@@ -10,11 +10,12 @@ export function Formulario() {
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
+    const [time, setTime] = useState('')
     
     const aoSalvar = (evento)=> {
         /**Previne o comportamento padrão do navegador (recarregar a página) */
         evento.preventDefault()
-        console.log("form enviado =>", nome, '/', cargo, '/', imagem)
+        console.log("form enviado =>", nome, '/', cargo, '/', imagem, '/', time)
     }
 
 
@@ -45,7 +46,13 @@ export function Formulario() {
                 aoAlterar={valor => setImagem(valor)}
                 />
 
-                <ListaSuspensa obrigatorio={true} item={times} label='Time' />
+                <ListaSuspensa 
+                valor={time}
+                aoAlterar={valor => setTime(valor)}
+                obrigatorio={true} 
+                item={times} 
+                label='Time' />
+                
                 <Botao onSubmit={aoSalvar} >
                     Criar Card
                 </Botao>
