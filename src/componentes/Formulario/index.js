@@ -5,7 +5,7 @@ import times from '../../Listas/TimesLista'
 import Botao from '../Botao'
 import { useState } from 'react'
 
-export function Formulario() {
+export function Formulario(props) {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
@@ -13,9 +13,15 @@ export function Formulario() {
     const [time, setTime] = useState('')
     
     const aoSalvar = (evento)=> {
-        /**Previne o comportamento padrão do navegador (recarregar a página) */
+        //Previne o comportamento padrão do navegador (recarregar a página) 
         evento.preventDefault()
-        console.log("form enviado =>", nome, '/', cargo, '/', imagem, '/', time)
+        //Transforma as informações que são pegas do formulario em um objeto
+        props.aoCadastrar({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
     }
 
 
